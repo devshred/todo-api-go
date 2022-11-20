@@ -1,10 +1,10 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 )
 
 func AllTodos(c *gin.Context) {
@@ -27,7 +27,7 @@ func ChangeTodo(c *gin.Context) {
 	DB.First(&todo, "id =?", id)
 
 	if todo.ID.String() == "00000000-0000-0000-0000-000000000000" {
-		log.Default().Println("todo not found")
+		log.Info("todo not found")
 		c.Status(http.StatusNotFound)
 		return
 	}
@@ -66,7 +66,7 @@ func DeleteTodo(c *gin.Context) {
 	DB.First(&todo, "id =?", id)
 
 	if todo.ID.String() == "00000000-0000-0000-0000-000000000000" {
-		log.Default().Println("todo not found")
+		log.Info("todo not found")
 		c.Status(http.StatusNotFound)
 		return
 	}
@@ -78,13 +78,13 @@ func DeleteTodo(c *gin.Context) {
 
 func GetTodo(c *gin.Context) {
 	id := c.Param("id")
-	log.Default().Println("about to search for " + id)
+	log.Info("about to search for " + id)
 
 	var todo Todo
 	DB.First(&todo, "id =?", id)
 
 	if todo.ID.String() == "00000000-0000-0000-0000-000000000000" {
-		log.Default().Println("todo not found")
+		log.Info("todo not found")
 		c.Status(http.StatusNotFound)
 		return
 	}
