@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS todos;
 
 CREATE TABLE todos (
-    id uuid NOT NULL,
+    id UUID DEFAULT GEN_RANDOM_UUID() NOT NULL,
     text text,
-    done bool,
-    PRIMARY KEY ("id")
+    done BOOLEAN,
+    PRIMARY KEY (id)
 );
