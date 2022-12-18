@@ -1,13 +1,16 @@
 version: '3.9'
+
 networks:
   todo:
     name: todo
+
 volumes:
   postgres_data:
+
 services:
   database:
     hostname: db
-    container_name: todo-db
+    container_name: todo_db
     image: postgres:13.9-alpine
     restart: always
     environment:
