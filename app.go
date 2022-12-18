@@ -24,7 +24,7 @@ func main() {
 	{
 		todoRoutes.GET("/", AllTodos)
 		todoRoutes.PATCH("/:id", ChangeTodo)
-		todoRoutes.POST("/", CreateTodo)
+		todoRoutes.POST("", CreateTodo)
 		todoRoutes.DELETE("/:id", DeleteTodo)
 		todoRoutes.GET("/:id", GetTodo)
 	}
