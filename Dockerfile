@@ -1,5 +1,5 @@
 ## Build
-FROM golang:1.19-buster AS build
+FROM golang:1.19 AS build
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY *.go ./
 RUN go build -o /todo-api-app
 
 ## Deploy
-FROM gcr.io/distroless/base-debian10
+FROM gcr.io/distroless/base-debian11
 
 WORKDIR /
 
